@@ -1,10 +1,9 @@
 /**
  * ScrollIt
  * ScrollIt.js(scroll•it•dot•js) makes it easy to make long, vertically scrolling pages.
+ * Developed by cmpolis https://github.com/cmpolis/scrollIt.js
+ * Forked by Rbto https://github.com/cmpolis/scrollIt.js
  * 
- * Latest version: https://github.com/cmpolis/scrollIt.js
- * 
- * License <https://github.com/cmpolis/scrollIt.js/blob/master/LICENSE.txt>
  */
 (function($) {
     'use strict';
@@ -44,13 +43,13 @@
          * sets up navigation animation
          */
         var navigate = function(ndx) {
-            if(ndx < 0 || ndx > lastIndex) return;
 
-            var targetTop = $('[data-scroll-index=' + ndx + ']').offset().top + settings.topOffset;
+            var targetTop = $('[data-scroll-index=' + /*'lorem'*/ ndx + ']').offset().top + settings.topOffset;
             $('html,body').animate({
                 scrollTop: targetTop,
                 easing: settings.easing
             }, settings.scrollTime);
+
         };
 
         /**
@@ -59,9 +58,10 @@
          * runs navigation() when criteria are met
          */
         var doScroll = function (e) {
+            e.preventDefault();
             var target = $(e.target).attr('data-scroll-nav') || 
             $(e.target).attr('data-scroll-goto');
-            navigate(parseInt(target));
+            navigate(target);
         };
 
         /**
@@ -92,6 +92,8 @@
             active = ndx;
             $('[data-scroll-nav]').removeClass(settings.activeClass);
             $('[data-scroll-nav=' + ndx + ']').addClass(settings.activeClass);
+            if (window.history && window.history.pushState)
+                window.history.replaceState(ndx, ndx, '#'+ndx);
         };
 
         /**
@@ -113,7 +115,7 @@
         /*
          * runs methods
          */
-        $(window).on('scroll',watchActive).on('scroll');
+        $(window).on('scroll',watchActive,80).on('scroll', 80);
 
         $(window).on('keydown', keyNavigation);
 
@@ -121,3 +123,34 @@
 
     };
 }(jQuery));
+
+/*!
+ * jquery.unevent.js 0.2
+ * https://github.com/yckart/jquery.unevent.js
+ *
+ * Copyright (c) 2013 Yannick Albert (http://yckart.com)
+ * Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
+ * 2013/07/26
+**/
+;(function ($) {
+    var on = $.fn.on, timer;
+    $.fn.on = function () {
+        var args = Array.apply(null, arguments);
+        var last = args[args.length - 1];
+
+        if (isNaN(last) || (last === 1 && args.pop())) return on.apply(this, args);
+
+        var delay = args.pop();
+        var fn = args.pop();
+
+        args.push(function () {
+            var self = this, params = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                fn.apply(self, params);
+            }, delay);
+        });
+
+        return on.apply(this, args);
+    };
+}(this.jQuery || this.Zepto));

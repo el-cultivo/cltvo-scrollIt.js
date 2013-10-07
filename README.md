@@ -1,5 +1,10 @@
 ### [Demo and more information](http://bytemuse.com/scrollIt.js)
 
+## Forked differences
+- Changes URL while scrolling via the updateActive method using **HTML5 history API**.
+- Uses **unevent.js** so that the watchActive method doesn't run on EVERY scroll event.
+- Yo can name your sections (data-scroll-index) with strings instaed of numbers.
+
 ## About
 ScrollIt.js(scroll•it•dot•js) makes it easy to make long, vertically scrolling pages. This is why it rocks:
 
@@ -61,6 +66,8 @@ $.scrollIt({
 
 ## Credit
 Created by [@ChrisPolis](http://twitter.com/chrispolis), *[blog](http://bytemuse.com)*
+Forked by [Rbto](https://github.com/cmpolis/scrollIt.js)
+Uses unevent.js by [Yannick Albert](https://github.com/yckart/jquery.unevent.js)
 
 Feel free to use, share and fork.
 
