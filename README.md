@@ -1,5 +1,3 @@
-### [Demo and more information](http://bytemuse.com/scrollIt.js)
-
 ## Forked differences
 - Changes URL while scrolling via the updateActive method using **HTML5 history API**.
 - Uses **unevent.js** so that the watchActive method doesn't run on EVERY scroll event.
@@ -8,6 +6,7 @@
 ## About
 ScrollIt.js(scroll•it•dot•js) makes it easy to make long, vertically scrolling pages. This is why it rocks:
 
+- **Demo of [ChrisPolis version](http://bytemuse.com/scrollIt.js)
 - **Easy to implement:** One JS call, just put data- attributes on the DOM
 - **Lightweight:** ~1kb minified
 - **Active Class:** Your navigation is updated automatically
@@ -66,7 +65,9 @@ $.scrollIt({
 
 ## Credit
 Created by [@ChrisPolis](http://twitter.com/chrispolis), *[blog](http://bytemuse.com)*
+
 Forked by [Rbto](https://github.com/cmpolis/scrollIt.js)
+
 Uses unevent.js by [Yannick Albert](https://github.com/yckart/jquery.unevent.js)
 
 Feel free to use, share and fork.
