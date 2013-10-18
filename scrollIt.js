@@ -44,7 +44,7 @@
          */
         var navigate = function(ndx) {
 
-            var targetTop = $('[data-scroll-index=' + /*'lorem'*/ ndx + ']').offset().top + settings.topOffset;
+            var targetTop = $('[data-scroll-index=' + ndx + ']').offset().top + settings.topOffset;
             $('html,body').animate({
                 scrollTop: targetTop,
                 easing: settings.easing
@@ -92,7 +92,7 @@
             active = ndx;
             $('[data-scroll-nav]').removeClass(settings.activeClass);
             $('[data-scroll-nav=' + ndx + ']').addClass(settings.activeClass);
-            if (window.history && window.history.pushState)
+            if (window.history && window.history.pushState && !typeof ndx === 'undefined')
                 window.history.replaceState(ndx, ndx, '#'+ndx);
         };
 
