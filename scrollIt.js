@@ -92,7 +92,7 @@
             active = ndx;
             $('[data-scroll-nav]').removeClass(settings.activeClass);
             $('[data-scroll-nav=' + ndx + ']').addClass(settings.activeClass);
-            if (window.history && window.history.pushState && !typeof ndx === 'undefined')
+            if (window.history && window.history.pushState && !(typeof ndx === 'undefined') )
                 window.history.replaceState(ndx, ndx, '#'+ndx);
         };
 
