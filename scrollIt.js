@@ -59,8 +59,8 @@
          */
         var doScroll = function (e) {
             e.preventDefault();
-            var target = $(e.target).attr('data-scroll-nav') || 
-            $(e.target).attr('data-scroll-goto');
+            var target = $(this).attr('data-scroll-nav') || 
+            $(this).attr('data-scroll-goto');
             navigate(target);
         };
 
