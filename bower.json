@@ -1,0 +1,23 @@
+{
+  "name": "Cltvo-ScrollIT",
+  "homepage": "https://github.com/el-cultivo/cltvo-scrollIt.js",
+  "authors": [
+    "El Cultivo <hola@elcultivo.mx>"
+  ],
+  "description": "Fork de Scrollit. Actualiza la URL, utiliza unevent.js y permite usar strings en lugar de números en el data-scroll-index",
+  "main": "scrollit.js",
+  "moduleType": [],
+  "keywords": [
+    "autoscroll",
+    "scrollit",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
